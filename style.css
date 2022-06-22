@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #01A7A3;
+}
+
+.overlay span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF;
+  background-color: #067476;
+  padding: 15px 25px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.info {
+  width: 1080px;
+  margin: 20px auto 0;
+  background-color: #EEE;
+  padding: 20px;
+  font-size: 24px;
+  overflow: hidden;
+  border: 2px solid #01A7A3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.memory-game {
+  display: flex;
+  width: 1100px;
+  flex-wrap: wrap;
+  margin: 20px auto;
+}
+
+.memory-game.stop-clicking {
+  pointer-events: none;
+}
+
+.memory-game .block {
+  height: 200px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  flex: 1 0 200px;
+  margin: 0 10px 20px;
+}
+
+.memory-game .block.flipped,
+.memory-game .block.matched {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
+.memory-game .block .side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  backface-visibility: hidden;
+  border: 5px solid #01A7A3;
+}
+
+.memory-game .block .front {
+  background-color: #015051;
+  line-height: 200px;
+  transform: rotateY(180deg);
+}
+
+.memory-game .block .front:before {
+  content: '?';
+  color: #FFF;
+  font-size: 140px;
+  font-weight: bold;
+}
+
+.memory-game .block .back {
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memory-game .block .back img {
+  width: 80%;
+  height: 80%;
+}
